@@ -1,0 +1,282 @@
+@import './_base'
+    
+@media screen and(min-width: 480px) 
+    main
+        min-height: 750px
+
+    #popular-card
+        display: grid
+        grid-template-columns: 1fr 1fr   
+
+    section .catalogue-card
+        margin: .5rem
+        padding-bottom: .5rem
+    
+    section#favorites-sect
+        #popular-card
+            margin-top: 2rem
+
+    #hero .hero-title 
+        font-size: 2.1rem !important
+
+    #hero .hero-separator
+        width: 50%
+    
+    #hero .hero-inner .hero-caption
+        font-size: 1.2rem
+        width: 70%
+    
+    #toggle
+        display: none
+    
+    app-header .header-title
+        z-index: 20
+    
+    nav
+        display: flex
+        flex-direction: row-reverse
+        position: fixed
+        max-height: 4.75rem
+        width: 80%
+        top: 0
+        background: $color-primary
+        transform: translateY(0px)
+        right: 0
+        border-radius: 0
+        z-index: 102
+
+    nav .nav-title
+        display: none
+    
+    nav .nav__image-wrapper
+        display: none
+
+    nav ul li
+        display: inline-block
+        transition: background,border-radius .3s ease-in-out
+
+    nav ul li a
+        padding-right: 1.5rem
+        padding-left: 1.5rem
+        border-bottom: 0px
+        color: $color-white
+
+    nav ul li:hover
+        background: $color-black-hover
+        border-radius: .4rem
+
+    section#partner-sect #partner-gallery
+        padding: 1.5rem 1.5rem
+        width: 100%
+        grid-template-columns: repeat(3, 1fr)
+        background: none
+    
+    #partner-gallery div
+        background: $color-white
+
+    #search-form
+        max-width: 700px
+
+    #loading
+        .loading__card
+            max-width: 150px
+            padding: .8rem 0
+
+            h4
+                font-size: 1.2rem
+
+    catalogue-list
+        display: flex
+        width: 100%
+        flex-direction: column
+        align-items: center
+
+
+    .not-found
+        width: 50%
+        height: auto  
+        margin: 3rem 0
+
+        p
+            padding: .5rem 1rem
+            text-align: center
+            color: $color-black-dim
+
+    .detail__title
+        margin-top: 2rem
+        
+    .detail-meta__wrapper
+        display: grid
+        grid-template-columns: 1fr 1fr
+        margin-top: 1rem
+        
+        .detail__image
+            margin-top: 0 !important
+            border-radius: 1rem 0 0 1rem !important
+
+        .meta-info
+            margin-top: 0 !important
+            height: 100%
+            border-radius: 0 1rem 1rem 0 !important
+            display: flex
+            flex-direction: column
+            justify-content: center
+            padding: 0 1.2rem !important
+
+            detail-info
+                margin: .8rem 0 !important
+        
+    .detail__description-label
+        margin-top: 3.5rem !important
+
+    .detail__description-label,.detail__description-value
+        margin-left: 1rem !important
+        margin-right: 1rem !important
+    
+    customer-reviews
+        h3,div
+            margin-left: 1rem !important
+            margin-right: 1rem !important
+
+    review-form
+        h3,input,textarea
+            margin-left: 1rem !important
+            margin-right: 1rem !important
+
+        input[type="submit"]
+            width: 75%
+            position: relative
+            margin: 1rem auto !important
+
+    .dish__menus
+        width: 90% !important
+        position: relative
+        margin: 2rem auto !important
+
+        .thin-wrapper
+            width: 30%
+
+    menu-list
+        margin-top: 1rem !important
+        margin-left: 2.2rem !important
+        ul
+            display: grid
+            grid-template-columns: 1fr 1fr
+
+@media screen and(min-width: 795px)
+    h2
+        margin-left: 1.5rem
+
+    h3.description
+        margin-left: 1.5rem
+
+    nav
+        padding-right: 2rem
+
+    nav ul li a
+        padding-right: 2rem
+        padding-left: 2rem
+    
+    #catalogue-sect
+        padding: 1rem !important
+
+    #popular-card
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+    
+    #hero
+        min-height: 500px
+    
+    #hero .hero-title 
+        font-size: 2.5rem !important
+
+    #hero .hero-inner .hero-separator
+        max-width: 600px
+        margin: 1.5rem 0
+        
+    #hero .hero-inner .hero-caption
+        font-size: 1.5rem
+        max-width: 700px
+        text-align: center
+    
+    section .catalogue-card .catalogue-content .catalogue-description
+        font-size: 1rem
+    
+    section#partner-sect #partner-gallery
+        grid-template-columns: repeat(5, 1fr)
+
+    #loading
+        .loading__card
+            max-width: 180px
+            padding: .8rem 0
+
+            h4
+                font-size: 1.4rem
+
+    .not-found
+        p
+            padding: .5rem 1rem
+            text-align: center
+            color: $color-black-dim
+
+    .detail__large
+        max-width: 950px !important
+        position: relative
+        margin: 0 auto !important
+
+    .thin-wrapper
+        width: 180px !important
+
+    menu-list
+        ul
+            grid-template-columns: repeat(3, 1fr)
+
+    customer-reviews
+        h3,div
+            margin-left: 2rem !important
+            margin-right: 2rem !important
+
+    review-form
+        h3,input,textarea
+            margin-left: 2rem !important
+            margin-right: 2rem !important
+
+        input[type='submit']
+            width: 500px
+
+@media screen and(min-width: 1200px)
+    #hero .hero-title 
+        font-size: 2.8rem !important
+    
+    #hero .hero-separator
+        width: 35%
+    
+    nav
+        padding-right: 2.5rem
+
+    nav ul li a
+        padding-right: 2.2rem
+        padding-left: 2.2rem
+
+    main
+        max-width: 1200px
+
+    #catalogue-sect
+        padding: 1rem !important
+
+    customer-reviews
+        h3, div
+            margin-left: 6rem !important
+            margin-right: 6rem !important
+
+    review-form
+        h3,input,textarea
+            margin-left: 6rem !important
+            margin-right: 6rem !important
+
+        input[type='submit']
+            width: 500px
+    
+    .like-button
+        bottom: 3rem
+        right: 3rem

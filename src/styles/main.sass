@@ -1,0 +1,745 @@
+@import "https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" 
+@import "./_base"
+
+
+
+// Global Styling
+*
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+    font-family: $font-main
+    text-decoration: none
+
+body
+    background: $color-white-dim
+    
+button
+    -webkit-tap-highlight-color: transparent
+
+.skip-content
+    padding: .5rem
+    color: $color-primary
+    background: $color-white
+    position: fixed
+    z-index: 15
+    transform: translateY(-150px)
+    border: 2px solid $color-black-dim
+
+    &:focus
+        transform: translateY(0)
+
+// Header Styling
+app-header
+    @extend %d-flex
+    @extend %w-100  
+    position: fixed
+    top: 0
+    justify-content: space-between
+    background: $color-primary
+    padding: 1rem 1.5rem
+    z-index: 101
+
+    &.open
+        box-shadow: 0 4px 12px $color-black-30
+
+    #toggle
+        @extend %d-flex
+        width: 44px
+        height: 44px
+        font-size: 1.4rem
+        color: $color-secondary
+        background: none
+        border: 0
+        cursor: pointer
+        padding: 0
+        position: relative
+
+        &:focus
+            outline: none
+
+        &::after
+            content: ''
+            display: inline-block
+            height: 100%
+            width: 100%
+            border-radius: 50%
+            position: absolute
+            top: 0
+            right: 0
+            z-index: -1
+            transform: scaleX(0) scaleY(0)
+            background-color: $color-black-dim
+            opacity: 1
+        
+        &.clicked
+            &::after
+                animation: .5s custom__pulse linear 1
+
+
+    .header-title
+        display: block
+        color: $color-secondary
+        padding: .4rem 0
+        width: 20%
+
+        span
+            font-size: 1.5rem
+            font-weight: 600
+            font-family: $font-secondary
+            font-style: italic
+
+    .line 
+        fill: none
+        stroke: $color-secondary
+        stroke-width: 6
+        transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1)
+        
+    .line1 
+        stroke-dasharray: 60 207
+        stroke-width: 6
+
+    .line2 
+        stroke-dasharray: 60 60
+        stroke-width: 6
+
+    .line3 
+        stroke-dasharray: 60 207
+        stroke-width: 6
+
+    .opened 
+        .line1 
+            stroke-dasharray: 90 207
+            stroke-dashoffset: -134
+            stroke-width: 6
+        .line2 
+            stroke-dasharray: 1 60
+            stroke-dashoffset: -30
+            stroke-width: 6
+        .line3 
+            stroke-dasharray: 90 207
+            stroke-dashoffset: -134
+            stroke-width: 6
+
+  
+// Nav Styling
+nav
+    @extend %d-flex
+    @extend %fx-col
+    @extend %w-100  
+    position: fixed
+    transform: translateY(-280px)
+    background: $color-white
+    z-index: 100
+    transition: transform 0.6s cubic-bezier(0.6,0.3, 0.2, 0.8)
+    padding: .8rem 1.5rem .8rem 1.5rem
+    border-radius: 0 0 .5rem .5rem
+    
+    &.open
+        transform: translateY(0px)
+        box-shadow: 0 4px 12px $color-black-30
+
+    &.my-fx
+        margin-top: 4.75rem
+
+    ul li
+        display: block
+
+    ul li a
+        display: block
+        padding: 1rem 0
+        color: black
+        font-weight: 500
+        border-bottom: 1px solid $color-grey-border
+        text-decoration: none
+
+    .nav-title
+        text-transform: uppercase
+        letter-spacing: 4px
+        font-weight: 600
+        font-size: .8rem
+        text-align: center
+        padding: .2rem 0 .5rem 0
+
+    .nav__image-wrapper
+        @extend %d-flex
+        @extend %fx-ctr-col
+        margin: .7rem 0 0 0
+
+    .nav__image
+        image-rendering: -webkit-optimize-contrast
+        image-rendering: crisp-edges
+        width: 52px
+        height: 52px
+        position: relative
+
+// Hero Styling
+#hero
+    position: relative
+    top: 0
+    margin-top: 4.75rem
+    min-height: 300px
+    perspective: 1px
+    overflow-y: auto
+    z-index: 1
+    overflow: hidden
+
+    &.hide
+        min-height: 0
+        height: 0
+
+    .hero__paralax
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+
+    .hero-back
+        position: relative
+        width: 100%
+        height: auto
+
+    .hero-inner
+        @extend %d-flex
+        @extend %fx-col
+        @extend %fx-ctr
+        background: rgba(0, 0, 0, 0.6)
+        transform: translateZ(0)
+
+    .hero-separator
+        width: 60%
+        height: 2px
+        background: $color-white
+        border-radius: 50%
+        margin: .8rem 0
+
+    p, h1
+        color: white
+
+    h1.hero-title
+        font-family: $font-secondary
+        font-weight: 700
+        font-style: italic
+        font-size: 2rem 
+
+    p.hero-caption
+        text-align: center
+        padding: 0 .8rem
+// main
+main
+    @extend %d-flex
+    @extend %fx-col
+    @extend %fx-ctr-align
+    @extend %h-nav-vh
+    min-height: 500px
+    margin: 0 auto
+    z-index: 15
+
+    h3.description
+        font-weight: 400
+        font-size: 1rem
+        color: $text-muted
+        margin-top: .2rem
+// Content
+section#catalogue-sect
+    @extend %w-100
+    padding: 1.5rem 1.5rem .5rem 1.5rem
+
+    #popular-card
+        margin: 1rem 0
+
+.catalogue-card
+    background: $color-white
+    margin: 1.5rem 0rem
+    border-radius: .4rem
+    overflow: hidden
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1)
+
+    .catalogue-header 
+        @extend %bg-fit
+        min-height: 200px
+        box-shadow: inset 0 -50px 50px -50px $color-black
+        overflow: hidden
+        position: relative
+
+        .catalogue-city
+            background: $color-dark-blue
+            display: inline-block
+            font-family: $font-secondary
+            font-style: italic
+            font-size: .9rem
+            padding: .3rem 1rem
+            border-radius: 0 1rem 1rem 0
+            margin-top: 1rem
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2)
+            color: $color-white-dim
+
+    .catalogue-content
+        padding: .8rem 1rem
+
+        .catalogue-title
+            min-height: 44px
+            display: flex
+            flex-direction: row
+            align-items: center
+
+        .catalogue-title a
+            color: $color-black
+            transition: color .3s ease-in
+            padding-top: .8rem
+            padding-bottom: .8rem
+            min-height: 44px
+
+            &:focus
+                color: $color-light-blue
+            
+            &:hover
+                color: $color-light-blue
+        
+            
+        .catalogue-description
+            display: -webkit-box
+            -webkit-line-clamp: 5
+            -webkit-box-orient: vertical
+            text-overflow: ellipsis
+            white-space: normal
+            overflow: hidden
+            font-size: .9rem
+            margin-top: .8rem
+            color: $color-black-dim
+
+        .rate-section
+            @extend %d-flex
+            @extend %fx-ctr-align
+            gap: 0 5px
+
+// Partner Section
+section#partner-sect
+    @extend %d-flex
+    @extend %fx-col
+    @extend %w-100
+
+    .partner-caption
+        padding-left: 1.5rem
+
+    #partner-gallery
+        @extend %w-100
+        display: grid
+        grid-template-columns: 1fr 1fr
+        gap: 16px 16px
+        background: white
+        min-height: 300px
+        margin-top: 1.5rem
+
+    .partner-image
+        @extend %w-100
+        height: auto
+
+// Detail Styling
+main
+    .bg-back
+        width: 100%
+        height: 400px
+        position: absolute
+        background: $color-primary
+        z-index: 0
+
+    .search-box
+        @extend %w-100
+        @extend %d-flex
+        @extend %fx-ctr
+        
+    #search-form
+        @extend %d-flex
+        @extend %fx-col
+        min-height: 50px
+        margin-top: 1rem
+        width: 100%
+        background: $color-white
+        border-radius: 1rem
+        box-shadow: 0 0 8px rgba(59, 59, 59, 0.1)
+        position: relative
+
+        .search-input
+            background: transparent
+            border: 0
+            font-size: 1rem
+            font-family: $font-main
+            width: 100%
+            padding: 1rem
+            border-radius: 1rem
+            transition: all .3s linear
+
+            &:focus
+                outline: none
+                box-shadow: 0 0 8px #b2d2f1
+
+        .search-button
+            background: transparent
+            border: 0
+            position: absolute
+            right: 1.2rem
+            top: 1rem
+            font-size: 1rem
+            color: $text-muted
+
+            .fa-search
+                transition: all .3s cubic-bezier(0.4,0.7,0.8,1)
+
+            &:focus
+                outline: none
+
+            &.active
+                .fa-search
+                    color: $color-dark-blue
+                    transform: scale(1.3) 
+
+section#favorites-sect
+    @extend %w-100
+    @extend %h-nav-vh
+    padding: 1.5rem 1.5rem .5rem 1.5rem
+    z-index: 2
+
+section#detail-sect
+    @extend %w-100
+    @extend %h-nav-vh
+    padding: 1.5rem 1.5rem .5rem 1.5rem
+    z-index: 2
+
+    h2
+        color: $color-white
+        font-family: $font-main
+
+    .detail__image
+        image-rendering: -webkit-optimize-contrast
+        image-rendering: crisp-edges
+        width: 100%
+        height: auto
+        border-radius: .5rem
+        margin-top: 1rem
+        box-shadow: 0 1px 8px -1px rgba(0, 0, 0, 0.2)
+        z-index: 5
+        min-height: 200px
+
+    .meta-info
+        margin-top: -.7rem
+        overflow: auto
+        padding: 0 1rem
+        box-sizing: border-box
+        background: $color-white
+        border-radius: 0 0 .6rem .6rem
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.1)
+        z-index: 4
+
+    detail-info
+        @extend %d-flex
+        @extend %fx-ctr-align
+        @extend %gap-m
+        margin: .9rem 0
+
+        .ic
+            @extend %d-flex
+            @extend %fx-ctr
+            font-size: 1.4rem
+            width: 22px
+            color: $color-dark-blue
+
+        .content
+            @extend %d-flex
+            @extend %fx-col
+            @extend %gap-xs-y
+
+        span.description
+            font-size: .8rem
+            color: $color-black-dim
+
+        h3.value
+            font-size: 1rem
+
+    h3.label
+        @extend %t-sm-bold
+        margin: 1.2rem 0 .6rem 0
+        font-size: 1.1rem
+
+    p.description
+        color: $color-black-dim
+        margin-bottom: .5rem
+
+    .dish__menus
+        @extend %d-flex
+        @extend %fx-col
+        @extend %fx-ctr-align
+        @extend %w-100
+        background: white
+        border-radius: .6rem
+        padding: .5rem
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.1)
+        margin: 1.2rem 0
+
+        h3.detail__dish
+            font-family: $font-main
+            font-weight: 500
+            margin: .6rem 0 .6rem 0
+
+        .thin-wrapper
+            width: 40%
+            background: $color-grey-border
+            height: 1px
+
+        .button-wrapper
+            @extend %w-100
+            @extend %d-flex
+            @extend %fx-ctr-col
+            
+        .btn-dish
+            position: relative
+            border: 0
+            min-height: 44px 
+            min-width: 44px
+            background: transparent
+            font-weight: 600
+            margin: 0 .6rem
+            cursor: pointer
+            
+            &:focus
+                outline: none
+
+            &::after
+                content: ""
+                position: absolute
+                height: 3px
+                width: 100%
+                bottom: 5px
+                left: 0
+                background: $color-primary
+                transform: scaleX(0)
+                transition: transform .3s  cubic-bezier(0.4, 0, 0.2, 1)
+
+            &.active
+                &::after
+                    transform: scaleX(1)
+
+        menu-list
+            @extend %w-100
+            margin-top: .6rem
+
+            ul
+                margin-left: 2rem
+                margin-bottom: 1rem
+
+            ul li 
+                margin: .5rem 0
+                color: $color-black-dim
+
+    review-item
+        .review-wrapper
+            background: $color-white
+            margin: 1rem 0
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1)
+            padding: 1rem 1rem
+            border-radius: 1.6rem 1.6rem .5rem 1.6rem
+
+        .review__name
+            @extend %t-sm-bold
+            color: $color-primary
+            font-size: 1rem
+            margin-bottom: .5rem
+
+        .review__description
+            color: $color-black-dim
+            margin-bottom: 1rem
+
+            img
+                max-width: 100%
+                height: auto
+                border-radius: .4rem
+                margin: .5rem 0
+
+        .review__date
+            @extend %t-sm-bold
+            color: $color-black-hover
+            font-size: .8rem
+            text-align: right
+
+    review-form
+        form
+            @extend %d-flex
+            @extend %fx-col
+            @extend %w-100
+
+            input
+                margin: .5rem 0
+
+            input[name='name']
+                border: 0
+                border-radius: .5rem
+                min-height: 44px
+                padding: 1rem
+                font-size: 1rem
+                font-weight: 500
+                
+                &:focus
+                    outline: none
+                    box-shadow: 0 0 8px #b2d2f1
+
+            input[type='submit']
+                @extend %t-sm-bold
+                margin-top: 1rem
+                padding: 1rem
+                min-height: 44px
+                background: $color-primary
+                border: 0
+                border-radius: .5rem
+                color: $color-white
+                font-size: 1rem
+                
+            textarea
+                border-radius: .5rem
+                border: 0
+                padding: 1rem
+                resize: none
+                color: $color-black-dim
+                font-size: 1rem
+                height: 9rem
+
+                &:focus
+                    outline: none
+                    box-shadow: 0 0 8px #b2d2f1
+
+.like-button
+    @extend %d-flex
+    @extend %fx-ctr
+    font-size: 1.4rem
+    position: fixed
+    bottom: 1.5rem
+    right: 1.5rem
+    background-color: $color-primary
+    border: 0
+    color: white
+    border-radius: 50%
+    width: 55px
+    height: 55px
+    cursor: pointer
+    z-index: 10
+
+    &::after
+        content: ""
+        display: inline-block
+        height: 100%
+        width: 100%
+        border-radius: 100px
+        position: absolute
+        top: 0
+        left: 0
+        z-index: -1
+        transition: all .4s
+        transform: scaleX(1) scaleY(1)
+        background-color: $color-primary
+        opacity: 1
+    
+    &.clicked
+        &::after
+            animation: .4s custom__pulse linear 1
+
+        i
+            animation: .4s custom__rubber-band linear 1
+
+    &:focus
+        outline: none
+
+// Loading
+#loading
+    &.loading__wrapper
+        margin-top: -4.75rem
+        position: fixed
+        width: 100%
+        height: 100vh
+        background: $color-black-50
+        z-index: 99
+        overflow-y: hidden
+        display: none
+
+    &.active
+        display: flex
+        flex-direction: row
+        justify-content: center
+        align-items: center
+    
+    .loading__card
+        @extend %d-flex
+        @extend %fx-col
+        @extend %fx-ctr
+        position: relative
+        width: 30%
+        border-radius: .6rem
+        background: $color-white-dim
+        min-height: 85px
+
+        h4
+            color: $color-primary
+
+    #loading-icon
+        width: 30%
+        margin-bottom: .3rem
+        height: auto
+// Footer
+footer
+    background: $color-primary
+    padding: 1rem
+
+    p
+        color: $color-white
+
+// Error Section
+.error-wrapper
+    @extend %w-100
+    @extend %d-flex
+    @extend %fx-col
+    @extend %fx-ctr
+    height: 350px
+
+    p
+        margin-top: 1rem
+        color: $color-white-dim
+        text-align: center
+
+.not-found
+    @extend %d-flex
+    @extend %fx-col
+    @extend %fx-ctr-align
+    @extend %w-100
+    min-height: 200px
+    margin-top: 1.5rem
+    margin-bottom: 3rem
+    
+    #not-found-lottie,#no-connection-lottie
+        width: 65%
+        height: auto  
+
+    p
+        padding: .5rem 1rem
+        text-align: center
+        color: $color-black-dim
+        
+#no-internet-connection
+    width: 65%
+    position: relative
+    margin: 5rem auto 0 auto
+    height: auto
+    
+// animation
+@keyframes custom__rubber-band 
+    0%
+        transform: scale(1, 1)
+    25% 
+        transform: scale(1.3, 0.6)
+    50%
+        transform: scale(1.1, 0.9)
+    100%
+        transform: scale(1, 1)
+
+@keyframes custom__pulse
+    to 
+        transform: scaleX(1.4) scaleY(1.4)
+        opacity: 0
