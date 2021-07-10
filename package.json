@@ -5,7 +5,7 @@
   "main": "src/scripts/index.js",
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js --open",
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js && node sharp.js",
     "test": "export EDGE_BIN=/usr/bin/microsoft-edge && karma start --browsers Edge",
     "e2e": "codeceptjs run --steps",
     "build-image": "node sharp.js"

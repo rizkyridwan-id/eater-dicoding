@@ -94,7 +94,6 @@ module.exports = {
         })
       ]
     }),
-    new BundleAnalyzerPlugin(),
     new MiniCssExtractPlugin()
   ],
 };
